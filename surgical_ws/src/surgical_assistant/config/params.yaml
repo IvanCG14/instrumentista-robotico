@@ -38,7 +38,7 @@ hand_tracking_node:
     max_rate_hz: 10.0
     ema_alpha: 0.5
     publish_debug_image: false
-    tasks_model_path: /home/iandre/Documents/models/hand_landmarker.task
+    tasks_model_path: ~/Documents/models/hand_landmarker.task
 
 task_coordinator_node:
   ros__parameters:
