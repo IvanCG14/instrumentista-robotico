@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from surgical_interfaces/msg/SurgicalCommand.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module surgical_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "Comando quirúrgico producido por voice_command_node (ASR + NLU).")
+    struct SurgicalCommand {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Intenciones: give_instrument | return_instrument | stop | home")
+      string intent;
+
+      @verbatim (language="comment", text=
+        "Nombre de clase del instrumento (debe coincidir con las clases del modelo YOLO-OBB)." "\n"
+        "Vacío si la intención no requiere instrumento (stop, home).")
+      string instrument_name;
+
+      @verbatim (language="comment", text=
+        "confianza del NLU")
+      @unit (value="0..1")
+      float confidence;
+
+      @verbatim (language="comment", text=
+        "confianza media de la transcripción")
+      @unit (value="0..1")
+      float asr_confidence;
+
+      @verbatim (language="comment", text=
+        "transcripción tal cual salió de Whisper")
+      string raw_text;
+
+      @verbatim (language="comment", text=
+        "latencia ASR + NLU (útil para métricas de la tesis)")
+      float processing_time_s;
+    };
+  };
+};

@@ -1,0 +1,14 @@
+﻿Registro de adquisición de datos de visión,
+Asistente quirúrgico para el intercambio de instrumental · basado en metodologia_adquisicion_vision.md,
+,
+Qué rellenar,Una fila por imagen o escena en F1–F4. Una fila por sesión/configuración en Configuracion_Sesiones. Los registros reales empiezan en la fila 3 de cada hoja de fase (la fila 2 es un ejemplo).
+Orden recomendado,"1) Catalogo_Instrumental (nombres y clases de los 10 instrumentos). 2) Configuracion_Sesiones (setup_id, session_id, camara_id). 3) Hojas de fase: las listas de setup_id, session_id, camara_id e instrumento salen de las dos anteriores."
+Catalogo_Instrumental,Los IDs I01–I10 son provisionales (la metodología pide asignar o confirmar el instrument_id). Las celdas amarillas son para escribir nombre y clase; las listas desplegables de las hojas de fase se alimentan de ahí.
+Listas desplegables,"Los valores permitidos están en la hoja Diccionario (columnas A–J de la especificación; K–R son listas adicionales editables). setup_id, session_id, camara_id y los campos de instrumento avisan pero no bloquean si escribes un valor que no está en la lista."
+Varios instrumentos en una celda,"instrument_ids_presentes y clases_anotadas admiten varios valores separados por punto y coma (I01;I04). Excel no permite selección múltiple, por eso esas columnas son de texto libre."
+Vacío vs. N/A,Parámetro desconocido todavía: dejar vacío. Parámetro que no aplica al sensor: N/A. No inventar valores.
+Colores de encabezado,"Azul oscuro = columna de la especificación. Ámbar = columna adicional sugerida (archivo_profundidad, estado_revision, escena_negativa); se pueden borrar sin afectar al resto."
+IDs únicos,capture_id no debe repetirse (aviso automático dentro de la hoja). Usar el mismo esquema en las cuatro fases para no colisionar.
+Rendimiento del modelo,No registrar mAP ni otras métricas aquí; van en una tabla de evaluación aparte.
+Copias de seguridad,No sobrescribir imágenes originales y guardar una copia de este libro al terminar cada sesión.
+Capacidad,Validaciones y formato preparados hasta la fila 602 en las hojas de fase y 102 en Configuracion_Sesiones.

@@ -1,0 +1,13 @@
+﻿fase,split,oclusion,reflejos,desenfoque,mano_presente,mano_interactua_con_instrumento,tipo_anotacion,tipo_sensor,estado_revision,si_no,solapamiento,formato_imagen,auto_manual,fase_base,variable_modificada,nivel_variable,bandeja_tipo
+F1_Individual,Pendiente,Ninguna,Ninguno,No,Sí,Sí,Caja delimitadora,RGB,Pendiente,Sí,Ninguno,JPG,Auto,Individual,Distancia,Referencia,Bandeja Mayo
+F2_Grupos,Train,Parcial,Leve,Leve,No,No,Máscara,RGB-D,Revisado,No,Parcial,PNG,Manual,Grupos,Intensidad de iluminación,Bajo,Otra bandeja
+F3_Contexto,Validation,Alta,Moderado,Alto,,N/A,Otro,Estéreo,Corregir,,Alto,TIFF,N/A,Contexto,Temperatura de color,Medio,Sin bandeja
+F4_Variaciones,Test,,Alto,,,,,Otro,,,,BMP,,,Dirección de luz,Alto,
+,,,,,,,,,,,,Otro,,,Orientación de instrumento,Otro,
+,,,,,,,,,,,,,,,Posición de instrumento,,
+,,,,,,,,,,,,,,,Posición de cámara,,
+,,,,,,,,,,,,,,,Otra,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+"Azul = valores de la especificación. Ámbar = listas adicionales sugeridas (editables). Si cambias o añades valores, ajusta también el rango de la validación de datos en las hojas.",,,,,,,,,,,,,,,,,
+Definir escalas y unidades antes de la adquisición sistemática. No usar una misma etiqueta con significados diferentes entre sesiones.,,,,,,,,,,,,,,,,,

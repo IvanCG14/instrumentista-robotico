@@ -1,0 +1,31 @@
+﻿campo,definición / valores
+instrument_id,Identifica un instrumento físico y su clase.
+capture_id,Identifica una imagen o escena. No reutilizar.
+session_id,Identifica una sesión de adquisición.
+setup_id,"Identifica una configuración física de cámara/montaje. Si cambia la posición u orientación de la cámara, registrar un nuevo setup_id."
+ruta_anotaciones,Ruta o nombre del archivo de etiquetas (annotation_id).
+split,"Pendiente / Train / Validation / Test. Asignar solo cuando se diseñe la partición, preferentemente por sesión o montaje."
+distancia_cm,Distancia cámara–mesa/instrumento en centímetros.
+vista_orientacion,Vista y orientación del instrumento en la imagen.
+posicion_en_escena,Posición del instrumento dentro del campo visual.
+rasgos_visibles,Rasgos distintivos visibles del instrumento.
+instrumentos_similares,Instrumentos con los que podría confundirse.
+instrument_ids_presentes,"Todos los IDs presentes en la escena, separados por punto y coma, aunque alguno esté parcialmente oculto."
+numero_instrumentos,Número de instrumentos presentes en la escena.
+pares_similares_presentes,Pares o grupos de instrumentos visualmente similares presentes.
+distribucion_escena / separacion_relativa,Descripción de la disposición y de la separación entre instrumentos. Definir la escala antes de empezar.
+solapamiento / oclusion,Solapamiento entre instrumentos y nivel de oclusión (Ninguna / Parcial / Alta).
+tipo_anotacion,"Caja delimitadora, Máscara u Otro."
+bandeja_tipo,Bandeja Mayo u otra superficie/bandeja del montaje.
+mano_presente / mano_interactua_con_instrumento,Presencia de manos y si interactúan con un instrumento (Sí / No / N/A).
+gasas_presentes / suturas_agujas_presentes / otros_distractores,Elementos de contexto. Su presencia no los convierte en clase objetivo.
+clases_anotadas,Categorías etiquetadas explícitamente en esa imagen.
+fase_base,Fase sobre la que se aplica la variación (Individual / Grupos / Contexto).
+variable_modificada / nivel_variable / valor_variable / unidad,"Qué se cambió, en qué nivel y con qué valor y unidad. Preferir una variable a la vez en la caracterización inicial."
+condiciones_constantes,Variables que se mantuvieron constantes respecto a la condición de referencia.
+reflejos / desenfoque,Reflejos: Ninguno / Leve / Moderado / Alto. Desenfoque: No / Leve / Alto.
+tipo_sensor,"RGB, RGB-D, Estéreo u Otro. No todos los campos aplican a todos los sensores: N/A si no aplica, vacío si aún no se conoce."
+calibracion_intrinseca / calibracion_extrinseca,Referencia a los parámetros o archivos de calibración de la cámara.
+archivo_profundidad (adicional),"Mapa de profundidad asociado, si el sensor es RGB-D."
+escena_negativa (adicional),Sí si no aparece ningún instrumento objetivo; sirve para evaluar falsos positivos.
+estado_revision (adicional),Pendiente / Revisado / Corregir.

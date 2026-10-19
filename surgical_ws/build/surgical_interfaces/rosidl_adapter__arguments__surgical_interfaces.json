@@ -1,0 +1,7 @@
+{
+  "package_name": "surgical_interfaces",
+  "non_idl_tuples": [
+    "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces:msg/SurgicalCommand.msg",
+    "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces:msg/InstrumentPose.msg"
+  ]
+}

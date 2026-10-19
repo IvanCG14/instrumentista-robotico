@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "surgical_interfaces__py",
+		"source" : "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces/surgical_interfaces__py"
+	}
+}

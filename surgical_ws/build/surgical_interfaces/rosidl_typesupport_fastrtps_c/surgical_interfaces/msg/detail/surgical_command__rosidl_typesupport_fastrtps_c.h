@@ -1,0 +1,65 @@
+// generated from rosidl_typesupport_fastrtps_c/resource/idl__rosidl_typesupport_fastrtps_c.h.em
+// with input from surgical_interfaces:msg/SurgicalCommand.idl
+// generated code does not contain a copyright notice
+#ifndef SURGICAL_INTERFACES__MSG__DETAIL__SURGICAL_COMMAND__ROSIDL_TYPESUPPORT_FASTRTPS_C_H_
+#define SURGICAL_INTERFACES__MSG__DETAIL__SURGICAL_COMMAND__ROSIDL_TYPESUPPORT_FASTRTPS_C_H_
+
+
+#include <stddef.h>
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "surgical_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h"
+#include "surgical_interfaces/msg/detail/surgical_command__struct.h"
+#include "fastcdr/Cdr.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+bool cdr_serialize_surgical_interfaces__msg__SurgicalCommand(
+  const surgical_interfaces__msg__SurgicalCommand * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+bool cdr_deserialize_surgical_interfaces__msg__SurgicalCommand(
+  eprosima::fastcdr::Cdr &,
+  surgical_interfaces__msg__SurgicalCommand * ros_message);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+size_t get_serialized_size_surgical_interfaces__msg__SurgicalCommand(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+size_t max_serialized_size_surgical_interfaces__msg__SurgicalCommand(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+bool cdr_serialize_key_surgical_interfaces__msg__SurgicalCommand(
+  const surgical_interfaces__msg__SurgicalCommand * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+size_t get_serialized_size_key_surgical_interfaces__msg__SurgicalCommand(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+size_t max_serialized_size_key_surgical_interfaces__msg__SurgicalCommand(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_surgical_interfaces
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, surgical_interfaces, msg, SurgicalCommand)();
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // SURGICAL_INTERFACES__MSG__DETAIL__SURGICAL_COMMAND__ROSIDL_TYPESUPPORT_FASTRTPS_C_H_

@@ -1,0 +1,229 @@
+[0.010s] Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces
+[0.070s] -- The C compiler identification is GNU 13.3.0
+[0.126s] -- The CXX compiler identification is GNU 13.3.0
+[0.141s] -- Detecting C compiler ABI info
+[0.225s] -- Detecting C compiler ABI info - done
+[0.238s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.238s] -- Detecting C compile features
+[0.239s] -- Detecting C compile features - done
+[0.250s] -- Detecting CXX compiler ABI info
+[0.352s] -- Detecting CXX compiler ABI info - done
+[0.365s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.365s] -- Detecting CXX compile features
+[0.365s] -- Detecting CXX compile features - done
+[0.368s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.505s] -- Found Python3: /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.578s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.608s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.614s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.662s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.698s] -- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[0.701s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.733s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.342s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[1.849s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.526s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.528s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[2.647s] -- Found PythonExtra: /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3  
+[3.014s] -- Found Python3: /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[3.100s] -- Configuring done (3.1s)
+[3.159s] -- Generating done (0.0s)
+[3.175s] -- Build files have been written to: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces
+[3.181s] Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces
+[3.183s] Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --build /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces -- -j8 -l8
+[3.239s] [  2%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[3.250s] [  2%] Built target ament_cmake_python_symlink_surgical_interfaces
+[3.563s] running egg_info
+[3.564s] creating surgical_interfaces.egg-info
+[3.591s] writing surgical_interfaces.egg-info/PKG-INFO
+[3.593s] writing dependency_links to surgical_interfaces.egg-info/dependency_links.txt
+[3.593s] writing top-level names to surgical_interfaces.egg-info/top_level.txt
+[3.594s] writing manifest file 'surgical_interfaces.egg-info/SOURCES.txt'
+[3.673s] [  2%] Built target surgical_interfaces__rosidl_generator_type_description
+[3.675s] reading manifest file 'surgical_interfaces.egg-info/SOURCES.txt'
+[3.676s] writing manifest file 'surgical_interfaces.egg-info/SOURCES.txt'
+[3.687s] [  4%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.702s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.717s] [  6%] Built target ament_cmake_python_build_surgical_interfaces_egg
+[4.178s] [  6%] Built target surgical_interfaces__cpp
+[4.247s] [  9%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_c.dir/rosidl_generator_c/surgical_interfaces/msg/detail/surgical_command__functions.c.o[0m
+[4.249s] [ 11%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_c.dir/rosidl_generator_c/surgical_interfaces/msg/detail/instrument_pose__description.c.o[0m
+[4.249s] [ 13%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_c.dir/rosidl_generator_c/surgical_interfaces/msg/detail/surgical_command__description.c.o[0m
+[4.251s] [ 15%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_c.dir/rosidl_generator_c/surgical_interfaces/msg/detail/surgical_command__type_support.c.o[0m
+[4.254s] [ 18%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_c.dir/rosidl_generator_c/surgical_interfaces/msg/detail/instrument_pose__type_support.c.o[0m
+[4.254s] [ 20%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_c.dir/rosidl_generator_c/surgical_interfaces/msg/detail/instrument_pose__functions.c.o[0m
+[4.345s] [ 22%] [32m[1mLinking C shared library libsurgical_interfaces__rosidl_generator_c.so[0m
+[4.384s] [ 22%] Built target surgical_interfaces__rosidl_generator_c
+[4.404s] [ 34%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[4.405s] [ 34%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[4.405s] [ 34%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[4.405s] [ 34%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.405s] [ 34%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[4.405s] [ 36%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[5.060s] [ 38%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/surgical_interfaces/msg/detail/instrument_pose__type_support.cpp.o[0m
+[5.065s] [ 40%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/surgical_interfaces/msg/instrument_pose__type_support.cpp.o[0m
+[5.069s] [ 43%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/surgical_interfaces/msg/detail/surgical_command__type_support.cpp.o[0m
+[5.076s] [ 45%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/surgical_interfaces/msg/surgical_command__type_support.cpp.o[0m
+[5.485s] [ 47%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/surgical_interfaces/msg/surgical_command__type_support.cpp.o[0m
+[5.589s] [ 50%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/surgical_interfaces/msg/detail/surgical_command__type_support.c.o[0m
+[5.645s] [ 52%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/surgical_interfaces/msg/instrument_pose__type_support.cpp.o[0m
+[5.686s] [ 54%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/surgical_interfaces/msg/detail/surgical_command__type_support_c.cpp.o[0m
+[5.708s] [ 56%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/surgical_interfaces/msg/detail/instrument_pose__type_support.c.o[0m
+[5.750s] [ 59%] [32m[1mLinking CXX shared library libsurgical_interfaces__rosidl_typesupport_c.so[0m
+[5.850s] [ 61%] [32m[1mLinking C shared library libsurgical_interfaces__rosidl_typesupport_introspection_c.so[0m
+[5.850s] [ 63%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/surgical_interfaces/msg/detail/dds_fastrtps/surgical_command__type_support.cpp.o[0m
+[5.851s] [ 63%] Built target surgical_interfaces__rosidl_typesupport_c
+[5.881s] [ 65%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/surgical_interfaces/msg/detail/instrument_pose__type_support_c.cpp.o[0m
+[5.946s] [ 68%] [32mBuilding CXX object CMakeFiles/surgical_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/surgical_interfaces/msg/detail/dds_fastrtps/instrument_pose__type_support.cpp.o[0m
+[5.958s] [ 68%] Built target surgical_interfaces__rosidl_typesupport_introspection_c
+[6.036s] [ 70%] [32m[1mLinking CXX shared library libsurgical_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[6.102s] [ 72%] [32m[1mLinking CXX shared library libsurgical_interfaces__rosidl_typesupport_cpp.so[0m
+[6.177s] [ 72%] Built target surgical_interfaces__rosidl_typesupport_introspection_cpp
+[6.199s] [ 72%] Built target surgical_interfaces__rosidl_typesupport_cpp
+[6.636s] [ 75%] [32m[1mLinking CXX shared library libsurgical_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[6.716s] [ 77%] [32m[1mLinking CXX shared library libsurgical_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[6.726s] [ 77%] Built target surgical_interfaces__rosidl_typesupport_fastrtps_c
+[6.794s] [ 77%] Built target surgical_interfaces__rosidl_typesupport_fastrtps_cpp
+[6.811s] [ 77%] Built target surgical_interfaces
+[6.829s] [ 79%] [34m[1mGenerating Python code for ROS interfaces[0m
+[7.347s] [ 79%] Built target surgical_interfaces__py
+[7.368s] [ 81%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_py.dir/rosidl_generator_py/surgical_interfaces/msg/_surgical_command_s.c.o[0m
+[7.368s] [ 84%] [32mBuilding C object CMakeFiles/surgical_interfaces__rosidl_generator_py.dir/rosidl_generator_py/surgical_interfaces/msg/_instrument_pose_s.c.o[0m
+[7.504s] [ 86%] [32m[1mLinking C shared library libsurgical_interfaces__rosidl_generator_py.so[0m
+[7.548s] [ 86%] Built target surgical_interfaces__rosidl_generator_py
+[7.572s] [ 93%] [32mBuilding C object CMakeFiles/surgical_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/surgical_interfaces/_surgical_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[7.572s] [ 93%] [32mBuilding C object CMakeFiles/surgical_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/surgical_interfaces/_surgical_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[7.572s] [ 93%] [32mBuilding C object CMakeFiles/surgical_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/surgical_interfaces/_surgical_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[7.708s] [ 95%] [32m[1mLinking C shared module rosidl_generator_py/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_c.so[0m
+[7.717s] [ 97%] [32m[1mLinking C shared module rosidl_generator_py/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[7.718s] [100%] [32m[1mLinking C shared module rosidl_generator_py/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[7.755s] [100%] Built target surgical_interfaces_s__rosidl_typesupport_c
+[7.763s] [100%] Built target surgical_interfaces_s__rosidl_typesupport_fastrtps_c
+[7.763s] [100%] Built target surgical_interfaces_s__rosidl_typesupport_introspection_c
+[7.779s] Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --build /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces -- -j8 -l8
+[7.801s] Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --install /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces
+[7.813s] -- Install configuration: ""
+[7.813s] -- Execute custom install script
+[7.814s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/ament_index/resource_index/rosidl_interfaces/surgical_interfaces
+[7.825s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/msg/SurgicalCommand.json
+[7.839s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/msg/InstrumentPose.json
+[7.853s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__functions.h
+[7.868s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__struct.h
+[7.882s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__type_support.h
+[7.899s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__functions.h
+[7.913s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__struct.h
+[7.922s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__type_support.h
+[7.930s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/instrument_pose.h
+[7.939s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/rosidl_generator_c__visibility_control.h
+[7.948s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/surgical_command.h
+[7.957s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/library_path.sh
+[7.966s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/library_path.dsv
+[7.976s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__rosidl_typesupport_fastrtps_c.h
+[7.985s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__rosidl_typesupport_fastrtps_c.h
+[7.992s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[7.999s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__rosidl_typesupport_introspection_c.h
+[8.006s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__rosidl_typesupport_introspection_c.h
+[8.015s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[8.026s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__builder.hpp
+[8.036s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__struct.hpp
+[8.044s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__traits.hpp
+[8.050s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__type_support.hpp
+[8.057s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__builder.hpp
+[8.066s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__struct.hpp
+[8.075s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__traits.hpp
+[8.082s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__type_support.hpp
+[8.093s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/instrument_pose.hpp
+[8.103s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[8.141s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/surgical_command.hpp
+[8.155s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[8.161s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__rosidl_typesupport_fastrtps_cpp.hpp
+[8.170s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[8.179s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/instrument_pose__rosidl_typesupport_introspection_cpp.hpp
+[8.188s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/include/surgical_interfaces/surgical_interfaces/msg/detail/surgical_command__rosidl_typesupport_introspection_cpp.hpp
+[8.201s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/pythonpath.sh
+[8.210s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/pythonpath.dsv
+[8.220s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces-0.1.0-py3.12.egg-info/PKG-INFO
+[8.230s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces-0.1.0-py3.12.egg-info/SOURCES.txt
+[8.238s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces-0.1.0-py3.12.egg-info/dependency_links.txt
+[8.245s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces-0.1.0-py3.12.egg-info/top_level.txt
+[8.252s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/__init__.py
+[8.258s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/_surgical_interfaces_s.ep.rosidl_typesupport_c.c
+[8.265s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/_surgical_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[8.275s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/_surgical_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[8.285s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/__init__.py
+[8.309s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/_instrument_pose.py
+[8.319s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/_instrument_pose_s.c
+[8.327s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/_surgical_command.py
+[8.341s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/_surgical_command_s.c
+[8.348s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_c.so
+[8.357s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[8.366s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_introspection_c.so
+[8.373s] -- Up-to-date symlink: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[8.374s] -- Up-to-date symlink: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_introspection_c.so
+[8.374s] -- Up-to-date symlink: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_c.so
+[8.374s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/msg/SurgicalCommand.idl
+[8.382s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/msg/InstrumentPose.idl
+[8.388s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/msg/SurgicalCommand.msg
+[8.398s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/msg/InstrumentPose.msg
+[8.408s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/ament_index/resource_index/package_run_dependencies/surgical_interfaces
+[8.431s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/ament_index/resource_index/parent_prefix_path/surgical_interfaces
+[8.439s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/ament_prefix_path.sh
+[8.448s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/ament_prefix_path.dsv
+[8.455s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/path.sh
+[8.466s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/environment/path.dsv
+[8.476s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/local_setup.bash
+[8.485s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/local_setup.sh
+[8.495s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/local_setup.zsh
+[8.505s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/local_setup.dsv
+[8.515s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.dsv
+[8.541s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/ament_index/resource_index/packages/surgical_interfaces
+[8.553s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/rosidl_cmake-extras.cmake
+[8.562s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.568s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.576s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[8.590s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[8.597s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[8.608s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[8.617s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfacesConfig.cmake
+[8.627s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfacesConfig-version.cmake
+[8.638s] -- Symlinking: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.xml
+[8.647s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_generator_c.so
+[8.648s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_generator_c.so" to ""
+[8.648s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_fastrtps_c.so
+[8.649s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[8.649s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_introspection_c.so
+[8.649s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[8.649s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_c.so
+[8.652s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_c.so" to ""
+[8.652s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[8.652s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[8.652s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_introspection_cpp.so
+[8.652s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[8.652s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_cpp.so
+[8.652s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_typesupport_cpp.so" to ""
+[8.696s] Listing '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces'...
+[8.696s] Compiling '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/__init__.py'...
+[8.696s] Listing '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg'...
+[8.696s] Compiling '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/__init__.py'...
+[8.696s] Compiling '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/_instrument_pose.py'...
+[8.696s] Compiling '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages/surgical_interfaces/msg/_surgical_command.py'...
+[8.702s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_generator_py.so
+[8.702s] -- Set non-toolchain portion of runtime path of "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/libsurgical_interfaces__rosidl_generator_py.so" to ""
+[8.703s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_generator_cExport.cmake
+[8.703s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_generator_cExport-noconfig.cmake
+[8.703s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[8.703s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[8.703s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[8.704s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[8.704s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_cExport.cmake
+[8.704s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[8.704s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_generator_cppExport.cmake
+[8.704s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[8.705s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[8.705s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[8.705s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[8.705s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_cppExport.cmake
+[8.705s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/surgical_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[8.706s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_generator_pyExport.cmake
+[8.706s] -- Installing: /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/cmake/export_surgical_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[8.708s] Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --install /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces

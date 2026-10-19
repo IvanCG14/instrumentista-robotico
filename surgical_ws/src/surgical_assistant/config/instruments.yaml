@@ -1,0 +1,29 @@
+# Catálogo de instrumentos.
+#
+# Las CLAVES de `instruments` deben coincidir EXACTAMENTE con los nombres de clase del modelo
+# YOLO-OBB (se leen de la metadata del .onnx; si no están ahí, usa el parámetro `class_names`).
+#
+# aliases : cómo puede nombrarlo el cirujano en español (sin tildes, en minúsculas).
+#           Se usan para extraer `instrument_name` de la transcripción (coincidencia difusa).
+# alpha_m : offset lineal fijo (α) en metros desde el centro de la OBB hasta el punto de
+#           agarre, a lo largo del eje largo del instrumento. Con signo: se mide sobre un
+#           eje con componente +x en la imagen (ver README, "ambigüedad de 180°").
+#           0.0 = agarrar por el centro de la OBB.
+default_alpha_m: 0.0
+
+instruments:
+  scalpel:
+    aliases: ["bisturi", "escalpelo", "mango de bisturi"]
+    alpha_m: 0.02
+  forceps:
+    aliases: ["pinza", "pinzas", "pinza de diseccion", "pinza anatomica", "forceps"]
+    alpha_m: 0.02
+  scissors:
+    aliases: ["tijera", "tijeras", "tijera de mayo", "tijera de metzenbaum"]
+    alpha_m: 0.02
+  needle_holder:
+    aliases: ["porta agujas", "portaagujas", "porta aguja", "portagujas"]
+    alpha_m: 0.02
+  hemostat:
+    aliases: ["pinza hemostatica", "hemostato", "mosquito", "pinza de kelly", "kelly"]
+    alpha_m: 0.02

@@ -1,0 +1,59 @@
+# Parámetros del MVP. Cualquier valor puede sobreescribirse desde la línea de comandos o el launch.
+# Ajusta los tópicos a tu cámara RGB-D (aquí: convención de realsense2_camera con align_depth).
+
+voice_command_node:
+  ros__parameters:
+    whisper_model: small            # base = más rápido; small = mejor precisión en español
+    whisper_compute_type: int8
+    whisper_cpu_threads: 4
+    language: es
+    audio_device: -1                # -1 = micrófono por defecto (lista: python3 -m sounddevice)
+    min_confidence: 0.60
+    require_wake_word: false        # recomendado true fuera del laboratorio
+    wake_word: asistente
+    setfit_model_dir: ""            # vacío → reglas; apunta al directorio generado por tools/train_intent_setfit.py
+
+instrument_detection_node:
+  ros__parameters:
+    color_topic: /image_raw
+    camera_info_topic: /camera_info
+    base_frame: link_base
+    instrument_plane_z_m: 0.01     # altura de la cara superior del instrumento en link_base
+    imgsz: 640
+    conf_threshold: 0.5
+    iou_threshold: 0.45
+    max_rate_hz: 5.0
+    intra_threads: 4
+    onnx_providers: ["CPUExecutionProvider"]   # con onnxruntime-openvino: ["OpenVINOExecutionProvider", "CPUExecutionProvider"]
+    publish_debug_image: false
+
+hand_tracking_node:
+  ros__parameters:
+    color_topic: /image_raw
+    camera_info_topic: /camera_info
+    base_frame: link_base
+    hand_plane_z_m: 0.25           # altura ASUMIDA de la mano en link_base (sin profundidad)
+    backend: auto                 # legacy | tasks (tasks exige tasks_model_path: hand_landmarker.task)
+    select_hand: closest
+    max_rate_hz: 10.0
+    ema_alpha: 0.5
+    publish_debug_image: false
+    tasks_model_path: /home/iandre/Documents/models/hand_landmarker.task
+
+task_coordinator_node:
+  ros__parameters:
+    dry_run: true                   # ← pasar a false SOLO tras validar en simulación
+    base_frame: link_base
+    move_group: lite6
+    ee_link: link_eef
+    gripper_ns: auto
+    gripper_required: true
+    velocity_scale: 0.2
+    acceleration_scale: 0.2
+    approach_height_m: 0.10
+    grasp_z_offset_m: -0.005
+    tcp_offset_m: 0.0               # distancia link_eef → centro de mordazas
+    handover_standoff_m: 0.15
+    handover_height_offset_m: 0.05
+    workspace_limits: [0.15, 0.45, -0.30, 0.30, 0.02, 0.45]
+    home_joints_rad: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]

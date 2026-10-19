@@ -1,0 +1,30 @@
+running develop
+running egg_info
+creating surgical_assistant.egg-info
+writing surgical_assistant.egg-info/PKG-INFO
+writing dependency_links to surgical_assistant.egg-info/dependency_links.txt
+writing entry points to surgical_assistant.egg-info/entry_points.txt
+writing requirements to surgical_assistant.egg-info/requires.txt
+writing top-level names to surgical_assistant.egg-info/top_level.txt
+writing manifest file 'surgical_assistant.egg-info/SOURCES.txt'
+reading manifest file 'surgical_assistant.egg-info/SOURCES.txt'
+writing manifest file 'surgical_assistant.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages/surgical-assistant.egg-link (link to .)
+Installing hand_tracking_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+Installing instrument_detection_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+Installing task_coordinator_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+Installing voice_command_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+
+Installed /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant
+running symlink_data
+creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index
+creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index/resource_index
+creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index/resource_index/packages
+symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/resource/surgical_assistant -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index/resource_index/packages
+symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/package.xml -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant
+creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/config
+symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/config/params.yaml -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/config
+symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/config/instruments.yaml -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/config
+creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/launch
+symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/launch/surgical_assistant.launch.py -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/launch

@@ -1,0 +1,3 @@
+﻿setup_id,session_id,fecha,responsable,camara_id,fabricante_modelo_camara,tipo_sensor,resolucion,frecuencia_captura_fps,formato_imagen,parametros_exposicion,ganancia,balance_blancos,enfoque,posicion_camara,orientacion_camara,distancia_referencia_cm,campo_vision,iluminacion_fuente,iluminacion_intensidad,temperatura_color,direccion_luz,fondo_superficie,bandeja,calibracion_intrinseca,calibracion_extrinseca,version_software,cambios_montaje,observaciones
+Fila 2 reservada,(los registros reales empiezan en la fila 3),,,,,,,,,,,,,,,,,,,,,,,,,,,
+setup_01,sesion_01,10/13/2026,Freddy,,,,,,,,,,,39,,,,,,,,,,,,,,

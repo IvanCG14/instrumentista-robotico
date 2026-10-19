@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from surgical_interfaces/msg/InstrumentPose.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "std_msgs/msg/Header.idl"
+
+module surgical_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "Instrumento detectado con su punto de agarre, expresado en el marco de la cámara." "\n"
+      "" "\n"
+      "header.frame_id : marco óptico de la cámara (x derecha, y abajo, z hacia adelante)." "\n"
+      "pose.position   : punto de agarre (centro OBB + offset lineal alpha a lo largo del eje largo)." "\n"
+      "pose.orientation: rotación alrededor del eje Z de la cámara tal que el eje X de la pose" "\n"
+      "                  apunta a lo largo del eje largo del instrumento.")
+    struct InstrumentPose {
+      std_msgs::msg::Header header;
+
+      string class_name;
+
+      geometry_msgs::msg::Pose pose;
+
+      float confidence;
+
+      @verbatim (language="comment", text=
+        "longitud estimada del eje largo (m)")
+      float length_m;
+
+      @verbatim (language="comment", text=
+        "alpha aplicado (m)")
+      float grasp_offset_m;
+    };
+  };
+};

@@ -1,0 +1,216 @@
+[0.167s] DEBUG:colcon:Command line arguments: ['/usr/lib/python3/dist-packages/colcon/__main__.py', 'build', '--symlink-install', '--packages-up-to', 'surgical_assistant']
+[0.167s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=['surgical_assistant'], packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7d04b2e7dee0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7d04b2fa5b20>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7d04b2fa5b20>>, mixin_verb=('build',))
+[0.211s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.212s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extensions ['colcon_pkg']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extension 'colcon_pkg'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extensions ['colcon_meta']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extension 'colcon_meta'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extensions ['ros']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_assistant) by extension 'ros'
+[0.242s] DEBUG:colcon.colcon_core.package_identification:Package 'src/surgical_assistant' with type 'ros.ament_python' and name 'surgical_assistant'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extension 'ignore_ament_install'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extensions ['colcon_pkg']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extension 'colcon_pkg'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extensions ['colcon_meta']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extension 'colcon_meta'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extensions ['ros']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/surgical_interfaces) by extension 'ros'
+[0.243s] DEBUG:colcon.colcon_core.package_identification:Package 'src/surgical_interfaces' with type 'ros.ament_cmake' and name 'surgical_interfaces'
+[0.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.243s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.260s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.260s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.261s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.261s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.261s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.262s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install
+[0.264s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 334 installed packages in /opt/ros/jazzy
+[0.265s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.354s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] DEBUG:colcon.colcon_core.verb:Building package 'surgical_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces', 'merge_install': False, 'path': '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces', 'symlink_install': True, 'test_result_base': None}
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'cmake_target' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] Level 5:colcon.colcon_core.verb:set package 'surgical_assistant' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] DEBUG:colcon.colcon_core.verb:Building package 'surgical_assistant' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant', 'merge_install': False, 'path': '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_assistant', 'symlink_install': True, 'test_result_base': None}
+[0.355s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.356s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.356s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces' with build type 'ament_cmake'
+[0.356s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces'
+[0.358s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.358s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.358s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.367s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces
+[3.538s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces
+[3.539s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --build /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces -- -j8 -l8
+[8.135s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --build /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces -- -j8 -l8
+[8.158s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --install /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces
+[9.064s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(surgical_interfaces)
+[9.064s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --install /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces
+[9.066s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces' for CMake module files
+[9.066s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces' for CMake config files
+[9.067s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_interfaces', 'cmake_prefix_path')
+[9.067s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/cmake_prefix_path.ps1'
+[9.068s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/cmake_prefix_path.dsv'
+[9.068s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/cmake_prefix_path.sh'
+[9.069s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib'
+[9.069s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_interfaces', 'ld_library_path_lib')
+[9.069s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/ld_library_path_lib.ps1'
+[9.069s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/ld_library_path_lib.dsv'
+[9.070s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/ld_library_path_lib.sh'
+[9.070s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/bin'
+[9.070s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/pkgconfig/surgical_interfaces.pc'
+[9.070s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages'
+[9.070s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_interfaces', 'pythonpath')
+[9.070s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/pythonpath.ps1'
+[9.071s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/pythonpath.dsv'
+[9.071s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/pythonpath.sh'
+[9.071s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/bin'
+[9.072s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.ps1'
+[9.072s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.dsv'
+[9.073s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.sh'
+[9.073s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.bash'
+[9.074s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.zsh'
+[9.074s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/colcon-core/packages/surgical_interfaces)
+[9.075s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(surgical_interfaces)
+[9.075s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces' for CMake module files
+[9.076s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces' for CMake config files
+[9.077s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_interfaces', 'cmake_prefix_path')
+[9.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/cmake_prefix_path.ps1'
+[9.078s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/cmake_prefix_path.dsv'
+[9.078s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/cmake_prefix_path.sh'
+[9.079s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib'
+[9.079s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_interfaces', 'ld_library_path_lib')
+[9.079s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/ld_library_path_lib.ps1'
+[9.080s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/ld_library_path_lib.dsv'
+[9.081s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/ld_library_path_lib.sh'
+[9.081s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/bin'
+[9.082s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/pkgconfig/surgical_interfaces.pc'
+[9.082s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages'
+[9.082s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_interfaces', 'pythonpath')
+[9.082s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/pythonpath.ps1'
+[9.083s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/pythonpath.dsv'
+[9.083s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/hook/pythonpath.sh'
+[9.084s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/bin'
+[9.085s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.ps1'
+[9.086s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.dsv'
+[9.086s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.sh'
+[9.087s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.bash'
+[9.088s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/surgical_interfaces/package.zsh'
+[9.089s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/share/colcon-core/packages/surgical_interfaces)
+[9.089s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_assistant' with build type 'ament_python'
+[9.089s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_assistant', 'ament_prefix_path')
+[9.090s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/hook/ament_prefix_path.ps1'
+[9.091s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/hook/ament_prefix_path.dsv'
+[9.092s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/hook/ament_prefix_path.sh'
+[9.093s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.093s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[9.332s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/src/surgical_assistant'
+[9.333s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.333s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[9.871s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(venv) /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/build --no-deps symlink_data
+[10.473s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_assistant', 'pythonpath_develop')
+[10.474s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/share/surgical_assistant/hook/pythonpath_develop.ps1'
+[10.474s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(venv) /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/build --no-deps symlink_data
+[10.475s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/share/surgical_assistant/hook/pythonpath_develop.dsv'
+[10.475s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/share/surgical_assistant/hook/pythonpath_develop.sh'
+[10.476s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant' for CMake module files
+[10.476s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant' for CMake config files
+[10.477s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib'
+[10.478s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/bin'
+[10.478s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/pkgconfig/surgical_assistant.pc'
+[10.478s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages'
+[10.479s] Level 1:colcon.colcon_core.shell:create_environment_hook('surgical_assistant', 'pythonpath')
+[10.479s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/hook/pythonpath.ps1'
+[10.479s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/hook/pythonpath.dsv'
+[10.480s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/hook/pythonpath.sh'
+[10.480s] Level 1:colcon.colcon_core.environment:checking '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/bin'
+[10.480s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(surgical_assistant)
+[10.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/package.ps1'
+[10.481s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/package.dsv'
+[10.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/package.sh'
+[10.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/package.bash'
+[10.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/package.zsh'
+[10.483s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/colcon-core/packages/surgical_assistant)
+[10.483s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[10.483s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[10.483s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[10.483s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[10.491s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[10.492s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[10.492s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[10.508s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.508s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/local_setup.ps1'
+[10.509s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/_local_setup_util_ps1.py'
+[10.510s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/setup.ps1'
+[10.511s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/local_setup.sh'
+[10.512s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/_local_setup_util_sh.py'
+[10.513s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/setup.sh'
+[10.515s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/local_setup.bash'
+[10.516s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/setup.bash'
+[10.517s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/local_setup.zsh'
+[10.518s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/setup.zsh'

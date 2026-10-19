@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces/rosidl_generator_py/surgical_interfaces/surgical_interfaces_s__rosidl_typesupport_c.so" "TARGETS" "surgical_interfaces_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/surgical_interfaces")

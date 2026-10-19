@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: surgical-assistant
+Version: 0.1.0
+Summary: Asistente robotico quirurgico (voz + vision + MoveIt 2).
+Maintainer: tesis
+Maintainer-email: iandre.cabrera@gmail.com
+License: Apache-2.0

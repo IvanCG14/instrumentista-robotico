@@ -1,0 +1,13 @@
+{
+  "package_name": "surgical_interfaces",
+  "output_dir": "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces/rosidl_generator_type_description/surgical_interfaces",
+  "idl_tuples": [
+    "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces/rosidl_adapter/surgical_interfaces:msg/SurgicalCommand.idl",
+    "/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_interfaces/rosidl_adapter/surgical_interfaces:msg/InstrumentPose.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs"
+  ]
+}

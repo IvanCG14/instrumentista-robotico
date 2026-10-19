@@ -1,0 +1,623 @@
+diff -ruN a/config/params.yaml b/config/params.yaml
+--- a/config/params.yaml	2026-10-16 18:17:12.634475461 -0500
++++ b/config/params.yaml	2026-10-16 18:17:12.636919404 -0500
+@@ -15,9 +15,10 @@
+ 
+ instrument_detection_node:
+   ros__parameters:
+-    color_topic: /camera/color/image_raw
+-    depth_topic: /camera/aligned_depth_to_color/image_raw
+-    camera_info_topic: /camera/color/camera_info
++    color_topic: /image_raw
++    camera_info_topic: /camera_info
++    base_frame: link_base
++    instrument_plane_z_m: 0.01     # altura de la cara superior del instrumento en link_base
+     imgsz: 640
+     conf_threshold: 0.5
+     iou_threshold: 0.45
+@@ -28,9 +29,10 @@
+ 
+ hand_tracking_node:
+   ros__parameters:
+-    color_topic: /camera/color/image_raw
+-    depth_topic: /camera/aligned_depth_to_color/image_raw
+-    camera_info_topic: /camera/color/camera_info
++    color_topic: /image_raw
++    camera_info_topic: /camera_info
++    base_frame: link_base
++    hand_plane_z_m: 0.25           # altura ASUMIDA de la mano en link_base (sin profundidad)
+     backend: legacy                 # legacy | tasks (tasks exige tasks_model_path: hand_landmarker.task)
+     select_hand: closest
+     max_rate_hz: 10.0
+diff -ruN a/surgical_assistant/dataset_core.py b/surgical_assistant/dataset_core.py
+--- a/surgical_assistant/dataset_core.py	2026-10-16 18:17:12.634203439 -0500
++++ b/surgical_assistant/dataset_core.py	2026-10-16 18:17:12.636570925 -0500
+@@ -332,11 +332,13 @@
+         n = self._next
+         while True:  # nunca sobrescribir
+             capture_id = f'{self.prefix}_{n:04d}'
+-            img_rel, depth_rel = f'{IMAGES_DIR}/{capture_id}.jpg', f'{DEPTH_DIR}/{capture_id}.png'
+-            if not os.path.exists(self._abs(img_rel)) and not os.path.exists(self._abs(depth_rel)):
++            img_rel = f'{IMAGES_DIR}/{capture_id}.jpg'
++            depth_rel = f'{DEPTH_DIR}/{capture_id}.png' if depth_m is not None else ''
++            if not os.path.exists(self._abs(img_rel)) and not (depth_rel and os.path.exists(self._abs(depth_rel))):
+                 break
+             n += 1
+-        img_path, depth_path = self._abs(img_rel), self._abs(depth_rel)
++        img_path = self._abs(img_rel)
++        depth_path = self._abs(depth_rel) if depth_rel else ''
+ 
+         h, w = color_bgr.shape[:2]
+         row = {k: '' for k in CAPTURE_FIELDS}
+@@ -351,12 +353,12 @@
+         try:
+             if not cv2.imwrite(img_path, color_bgr, [cv2.IMWRITE_JPEG_QUALITY, self.jpeg_quality]):
+                 raise IOError(f'No se pudo escribir {img_path}')
+-            if not cv2.imwrite(depth_path, to_depth_mm(depth_m)):
++            if depth_path and not cv2.imwrite(depth_path, to_depth_mm(depth_m)):
+                 raise IOError(f'No se pudo escribir {depth_path}')
+             append_row(os.path.join(self.root, PHASE_FILES[phase]), CAPTURE_FIELDS, row)
+         except Exception:
+             for p in (img_path, depth_path):
+-                if os.path.exists(p):
++                if p and os.path.exists(p):
+                     os.remove(p)
+             raise
+         self._next = n + 1
+@@ -370,7 +372,7 @@
+         phase, capture_id, img_path, depth_path = self._undo.pop()
+         remove_row(os.path.join(self.root, PHASE_FILES[phase]), CAPTURE_FIELDS, 'capture_id', capture_id)
+         for p in (img_path, depth_path):
+-            if os.path.exists(p):
++            if p and os.path.exists(p):
+                 os.remove(p)
+         return capture_id
+ 
+diff -ruN a/surgical_assistant/geometry.py b/surgical_assistant/geometry.py
+--- a/surgical_assistant/geometry.py	2026-10-16 18:17:12.634346049 -0500
++++ b/surgical_assistant/geometry.py	2026-10-16 18:17:12.636772239 -0500
+@@ -8,7 +8,7 @@
+ from __future__ import annotations
+ 
+ import math
+-from typing import Iterable, Sequence, Tuple
++from typing import Iterable, Optional, Sequence, Tuple
+ 
+ import numpy as np
+ 
+@@ -177,3 +177,56 @@
+     if prev is None:
+         return new_t
+     return tuple(alpha * n + (1.0 - alpha) * float(p) for p, n in zip(prev, new_t))
++
++
++# ----------------------------------------------------------------------------
++# Cámara monocular (sin profundidad): rayo de un pixel + intersección con un plano z = cte
++# ----------------------------------------------------------------------------
++def pixel_ray(u: float, v: float, K, D=None) -> Vec3:
++    """Pixel (u, v) → dirección (xn, yn, 1) en el marco óptico, corrigiendo la distorsión.
++
++    K: matriz 3x3 (array-like). D: coeficientes (plumb_bob) o None/[] si no hay distorsión.
++    """
++    import cv2
++    k = np.asarray(K, dtype=np.float64).reshape(3, 3)
++    d = None if D is None or len(D) == 0 else np.asarray(D, dtype=np.float64).reshape(-1)
++    xn, yn = cv2.undistortPoints(np.array([[[u, v]]], dtype=np.float64), k, d)[0, 0]
++    return (float(xn), float(yn), 1.0)
++
++
++def ray_plane_z(origin: Sequence[float], direction: Sequence[float], plane_z: float,
++                eps: float = 1e-6) -> Optional[Vec3]:
++    """Corte del rayo origin + s·direction (s > 0) con el plano horizontal z = plane_z."""
++    dz = float(direction[2])
++    if abs(dz) < eps:
++        return None
++    s = (plane_z - float(origin[2])) / dz
++    if s <= 0.0:
++        return None
++    return (float(origin[0]) + s * float(direction[0]),
++            float(origin[1]) + s * float(direction[1]),
++            float(plane_z))
++
++
++def grasp_on_plane(project, cx: float, cy: float, long_len_px: float, axis: float,
++                   alpha: float, plane_z: float) -> Optional[Tuple[float, float, float, float]]:
++    """Punto de agarre de una OBB apoyada en el plano z = plane_z (marco base).
++
++    project(u, v, z) → np.ndarray (x, y, z) en base, o None. `axis` es el ángulo del eje largo en
++    la imagen, en (-π/2, π/2] (ver obb_long_axis): el sentido +alpha es el del extremo con mayor u.
++    Devuelve (x, y, yaw, longitud_m) o None si algún rayo no corta el plano.
++    """
++    ux, uy = math.cos(axis), math.sin(axis)
++    hl = long_len_px / 2.0
++    centre = project(cx, cy, plane_z)
++    end_a = project(cx - ux * hl, cy - uy * hl, plane_z)
++    end_b = project(cx + ux * hl, cy + uy * hl, plane_z)
++    if centre is None or end_a is None or end_b is None:
++        return None
++    vx, vy = float(end_b[0] - end_a[0]), float(end_b[1] - end_a[1])
++    length = math.hypot(vx, vy)
++    if length < 1e-4:
++        return None
++    dx, dy = vx / length, vy / length
++    return (float(centre[0]) + alpha * dx, float(centre[1]) + alpha * dy,
++            math.atan2(dy, dx), length)
+diff -ruN a/surgical_assistant/hand_tracking_node.py b/surgical_assistant/hand_tracking_node.py
+--- a/surgical_assistant/hand_tracking_node.py	2026-10-16 18:17:12.634377734 -0500
++++ b/surgical_assistant/hand_tracking_node.py	2026-10-16 18:17:12.636710578 -0500
+@@ -6,6 +6,8 @@
+ """
+ from __future__ import annotations
+ 
++import math
++
+ import cv2
+ import rclpy
+ from cv_bridge import CvBridge
+@@ -13,8 +15,8 @@
+ from rclpy.node import Node
+ from sensor_msgs.msg import Image
+ 
+-from surgical_assistant.geometry import deproject, ema
+-from surgical_assistant.rgbd_utils import RGBDSynchronizer, median_depth, scale_uv
++from surgical_assistant.geometry import ema
++from surgical_assistant.monocular_utils import ColorStream, PlaneProjector
+ 
+ LANDMARK_MIDDLE_MCP = 9
+ 
+@@ -70,20 +72,18 @@
+     def __init__(self) -> None:
+         super().__init__('hand_tracking_node')
+ 
+-        self.declare_parameter('color_topic', '/camera/color/image_raw')
+-        self.declare_parameter('depth_topic', '/camera/aligned_depth_to_color/image_raw')
+-        self.declare_parameter('camera_info_topic', '/camera/color/camera_info')
++        self.declare_parameter('color_topic', '/image_raw')
++        self.declare_parameter('camera_info_topic', '/camera_info')
++        self.declare_parameter('base_frame', 'link_base')
++        self.declare_parameter('hand_plane_z_m', 0.25)           # altura ASUMIDA del Landmark 9 en link_base
+         self.declare_parameter('backend', 'legacy')              # legacy | tasks
+         self.declare_parameter('tasks_model_path', '')           # hand_landmarker.task (solo backend=tasks)
+         self.declare_parameter('max_hands', 2)
+         self.declare_parameter('model_complexity', 0)            # 0 = más rápido (CPU)
+         self.declare_parameter('min_detection_confidence', 0.6)
+         self.declare_parameter('min_tracking_confidence', 0.5)
+-        self.declare_parameter('select_hand', 'closest')         # closest | best
++        self.declare_parameter('select_hand', 'closest')         # closest (a la base del robot) | best (mayor score)
+         self.declare_parameter('max_rate_hz', 10.0)
+-        self.declare_parameter('depth_window', 9)
+-        self.declare_parameter('min_depth_m', 0.15)
+-        self.declare_parameter('max_depth_m', 1.5)
+         self.declare_parameter('ema_alpha', 0.5)                 # 1.0 = sin suavizado
+         self.declare_parameter('publish_debug_image', False)
+         self.declare_parameter('pose_topic', '/hand_pose')
+@@ -97,9 +97,8 @@
+             self.backend = _LegacyBackend(max_hands, int(p('model_complexity').value), det, trk)
+ 
+         self.select = p('select_hand').value
+-        self.win = int(p('depth_window').value)
+-        self.min_d = float(p('min_depth_m').value)
+-        self.max_d = float(p('max_depth_m').value)
++        self.base_frame = p('base_frame').value
++        self.hand_z = float(p('hand_plane_z_m').value)
+         self.alpha = float(p('ema_alpha').value)
+         self._smoothed = None
+         self._last_stamp = None
+@@ -108,35 +107,35 @@
+         self.dbg_pub = (self.create_publisher(Image, '~/debug_image', 1)
+                         if p('publish_debug_image').value else None)
+         self._bridge = CvBridge()
+-        self.rgbd = RGBDSynchronizer(self, p('color_topic').value, p('depth_topic').value,
+-                                     p('camera_info_topic').value, self._on_frame,
+-                                     max_rate_hz=float(p('max_rate_hz').value))
++        self.projector = PlaneProjector(self, self.base_frame)
++        self.stream = ColorStream(self, p('color_topic').value, p('camera_info_topic').value,
++                                  self._on_frame, max_rate_hz=float(p('max_rate_hz').value))
+ 
+-    def _on_frame(self, color, depth_m, header, K) -> None:
+-        fx, fy, cx, cy = K
++    def _on_frame(self, color, header, cam) -> None:
+         h, w = color.shape[:2]
+         rgb = cv2.cvtColor(color, cv2.COLOR_BGR2RGB)
+         hands = self.backend.process(rgb)  # [(x_norm, y_norm, score), ...]
++        project = self.projector.bind(cam, header.frame_id) if hands else None
+ 
+-        candidates = []
+-        for xn, yn, score in hands:
+-            u, v = xn * w, yn * h
+-            ud, vd = scale_uv(u, v, color.shape, depth_m.shape)
+-            z = median_depth(depth_m, ud, vd, self.win, self.min_d, self.max_d)
+-            if z is not None:
+-                candidates.append((z, score, u, v))
++        candidates = []  # (dist_a_la_base, score, u, v, punto_en_base)
++        if project is not None:
++            for xn, yn, score in hands:
++                u, v = xn * w, yn * h
++                pt = project(u, v, self.hand_z)
++                if pt is not None:
++                    candidates.append((math.hypot(pt[0], pt[1]), score, u, v, pt))
+ 
+         if not candidates:
+             self._smoothed = None  # al perder la mano no arrastramos una posición vieja
+             return
+-        z, _score, u, v = (min(candidates, key=lambda c: c[0]) if self.select == 'closest'
+-                           else max(candidates, key=lambda c: c[1]))
++        _, _, u, v, pt = (min(candidates, key=lambda c: c[0]) if self.select == 'closest'
++                          else max(candidates, key=lambda c: c[1]))
+ 
+-        xyz = deproject(u, v, z, fx, fy, cx, cy)
+-        self._smoothed = ema(self._smoothed, xyz, self.alpha)
++        self._smoothed = ema(self._smoothed, (float(pt[0]), float(pt[1]), self.hand_z), self.alpha)
+ 
+         msg = PoseStamped()
+-        msg.header = header
++        msg.header.stamp = header.stamp
++        msg.header.frame_id = self.base_frame              # ← la pose sale en link_base
+         msg.pose.position.x, msg.pose.position.y, msg.pose.position.z = self._smoothed
+         msg.pose.orientation.w = 1.0
+         self.pub.publish(msg)
+@@ -144,8 +143,8 @@
+         if self.dbg_pub is not None:
+             dbg = color.copy()
+             cv2.circle(dbg, (int(u), int(v)), 8, (0, 0, 255), -1)
+-            cv2.putText(dbg, f'LM9 z={z:.2f}m', (int(u) + 10, int(v)), cv2.FONT_HERSHEY_SIMPLEX,
+-                        0.6, (0, 0, 255), 2)
++            cv2.putText(dbg, f'LM9 x={pt[0]:.2f} y={pt[1]:.2f} (z asumida)', (int(u) + 10, int(v)),
++                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+             out = self._bridge.cv2_to_imgmsg(dbg, encoding='bgr8')
+             out.header = header
+             self.dbg_pub.publish(out)
+diff -ruN a/surgical_assistant/instrument_detection_node.py b/surgical_assistant/instrument_detection_node.py
+--- a/surgical_assistant/instrument_detection_node.py	2026-10-16 18:17:12.634413413 -0500
++++ b/surgical_assistant/instrument_detection_node.py	2026-10-16 18:17:12.636737355 -0500
+@@ -10,8 +10,6 @@
+ """
+ from __future__ import annotations
+ 
+-import math
+-
+ import rclpy
+ from rclpy.node import Node
+ from sensor_msgs.msg import Image
+@@ -19,8 +17,8 @@
+ 
+ from surgical_interfaces.msg import InstrumentPose
+ from surgical_assistant.config_loader import load_instruments_config
+-from surgical_assistant.geometry import deproject, obb_long_axis, quat_from_yaw
+-from surgical_assistant.rgbd_utils import RGBDSynchronizer, median_depth, scale_uv
++from surgical_assistant.geometry import grasp_on_plane, obb_long_axis, quat_from_yaw
++from surgical_assistant.monocular_utils import ColorStream, PlaneProjector
+ from surgical_assistant.yolo_obb_onnx import YoloObbOnnx, draw_detection
+ 
+ 
+@@ -28,9 +26,10 @@
+     def __init__(self) -> None:
+         super().__init__('instrument_detection_node')
+ 
+-        self.declare_parameter('color_topic', '/camera/color/image_raw')
+-        self.declare_parameter('depth_topic', '/camera/aligned_depth_to_color/image_raw')
+-        self.declare_parameter('camera_info_topic', '/camera/color/camera_info')
++        self.declare_parameter('color_topic', '/image_raw')
++        self.declare_parameter('camera_info_topic', '/camera_info')
++        self.declare_parameter('base_frame', 'link_base')
++        self.declare_parameter('instrument_plane_z_m', 0.01)   # altura (en link_base) de la cara superior del instrumento
+         self.declare_parameter('model_path', '')
+         self.declare_parameter('imgsz', 640)
+         self.declare_parameter('conf_threshold', 0.5)
+@@ -40,9 +39,6 @@
+         self.declare_parameter('intra_threads', 4)
+         self.declare_parameter('max_rate_hz', 5.0)
+         self.declare_parameter('instruments_config', '')
+-        self.declare_parameter('depth_window', 7)
+-        self.declare_parameter('min_depth_m', 0.15)
+-        self.declare_parameter('max_depth_m', 1.5)
+         self.declare_parameter('publish_debug_image', False)
+         self.declare_parameter('pose_topic', '/instrument_pose')
+ 
+@@ -67,21 +63,22 @@
+             self.get_logger().warn(f'Clases del modelo sin entrada en instruments.yaml: {missing} '
+                                    f'(se usa alpha={self.default_alpha} m).')
+ 
+-        self.win = int(p('depth_window').value)
+-        self.min_d = float(p('min_depth_m').value)
+-        self.max_d = float(p('max_depth_m').value)
++        self.base_frame = p('base_frame').value
++        self.plane_z = float(p('instrument_plane_z_m').value)
+         self.pub_debug_enabled = bool(p('publish_debug_image').value)
+ 
+         self.pub = self.create_publisher(InstrumentPose, p('pose_topic').value, 10)
+         self.dbg_pub = self.create_publisher(Image, '~/debug_image', 1) if self.pub_debug_enabled else None
+         self._bridge = CvBridge()
+ 
+-        self.rgbd = RGBDSynchronizer(self, p('color_topic').value, p('depth_topic').value,
+-                                     p('camera_info_topic').value, self._on_frame,
+-                                     max_rate_hz=float(p('max_rate_hz').value))
+-
+-    def _on_frame(self, color, depth_m, header, K) -> None:
+-        fx, fy, cx, cy = K
++        self.projector = PlaneProjector(self, self.base_frame)
++        self.stream = ColorStream(self, p('color_topic').value, p('camera_info_topic').value,
++                                  self._on_frame, max_rate_hz=float(p('max_rate_hz').value))
++
++    def _on_frame(self, color, header, cam) -> None:
++        project = self.projector.bind(cam, header.frame_id)   # None si falta la TF base ← cámara
++        if project is None:
++            return
+         dets = self.detector.detect(color)
+         best_per_class = {}
+         for d in dets:  # `dets` viene ordenada por score descendente
+@@ -90,36 +87,30 @@
+         debug = color.copy() if self.dbg_pub is not None else None
+         for name, d in best_per_class.items():
+             long_len_px, axis = obb_long_axis(d.w, d.h, d.angle)
+-
+-            uc, vc = scale_uv(d.cx, d.cy, color.shape, depth_m.shape)
+-            z = median_depth(depth_m, uc, vc, self.win, self.min_d, self.max_d)
+-            if z is None:
+-                self.get_logger().warn(f'{name}: profundidad inválida en el centro.', throttle_duration_sec=2.0)
+-                continue
+-
+             alpha = self.alpha.get(name, self.default_alpha)
+-            off_px = alpha * fx / z
+-            gu = d.cx + math.cos(axis) * off_px
+-            gv = d.cy + math.sin(axis) * off_px
+-            ug, vg = scale_uv(gu, gv, color.shape, depth_m.shape)
+-            zg = median_depth(depth_m, ug, vg, self.win, self.min_d, self.max_d) or z
+-
+-            x3, y3, z3 = deproject(gu, gv, zg, fx, fy, cx, cy)
+-            q = quat_from_yaw(axis)
++            res = grasp_on_plane(project, d.cx, d.cy, long_len_px, axis, alpha, self.plane_z)
++            if res is None:
++                self.get_logger().warn(f'{name}: el rayo no corta el plano z={self.plane_z} m '
++                                       '(revisa la TF del Paso 2 y instrument_plane_z_m).',
++                                       throttle_duration_sec=2.0)
++                continue
++            gx, gy, yaw, length = res
++            q = quat_from_yaw(yaw)
+ 
+             msg = InstrumentPose()
+-            msg.header = header
++            msg.header.stamp = header.stamp
++            msg.header.frame_id = self.base_frame          # ← ahora la pose ya sale en link_base
+             msg.class_name = name
+-            msg.pose.position.x, msg.pose.position.y, msg.pose.position.z = x3, y3, z3
++            msg.pose.position.x, msg.pose.position.y, msg.pose.position.z = gx, gy, self.plane_z
+             msg.pose.orientation.x, msg.pose.orientation.y = q[0], q[1]
+             msg.pose.orientation.z, msg.pose.orientation.w = q[2], q[3]
+             msg.confidence = float(d.score)
+-            msg.length_m = float(long_len_px * z / fx)
++            msg.length_m = float(length)
+             msg.grasp_offset_m = float(alpha)
+             self.pub.publish(msg)
+ 
+             if debug is not None:
+-                draw_detection(debug, d, (gu, gv))
++                draw_detection(debug, d)
+ 
+         if debug is not None:
+             out = self._bridge.cv2_to_imgmsg(debug, encoding='bgr8')
+diff -ruN a/surgical_assistant/monocular_utils.py b/surgical_assistant/monocular_utils.py
+--- a/surgical_assistant/monocular_utils.py	1969-12-31 19:00:00.000000000 -0500
++++ b/surgical_assistant/monocular_utils.py	2026-10-16 18:17:12.636679318 -0500
+@@ -0,0 +1,113 @@
++"""Cámara monocular (sin profundidad): suscripción RGB + CameraInfo y proyección píxel → plano.
++
++Sustituye a rgbd_utils.RGBDSynchronizer en los nodos de visión. Con una sola cámara fija
++(eye-to-hand) la posición 3D se obtiene intersectando el rayo del píxel con un plano horizontal
++de altura conocida expresado en el marco base del robot (p. ej. la mesa de instrumental).
++"""
++from __future__ import annotations
++
++from typing import Callable, Optional
++
++import numpy as np
++from cv_bridge import CvBridge
++from rclpy.node import Node
++from rclpy.qos import qos_profile_sensor_data
++from rclpy.time import Time
++from sensor_msgs.msg import CameraInfo, Image
++from tf2_ros import Buffer, TransformException, TransformListener
++
++from surgical_assistant.geometry import pixel_ray, quat_to_matrix, ray_plane_z
++
++
++class CameraModel:
++    """Intrínsecos y distorsión tomados de un sensor_msgs/CameraInfo."""
++
++    def __init__(self, msg: CameraInfo):
++        self.K = np.array(msg.k, dtype=np.float64).reshape(3, 3)
++        self.D = np.array(msg.d, dtype=np.float64).reshape(-1)
++        self.width, self.height = int(msg.width), int(msg.height)
++
++    @property
++    def valid(self) -> bool:
++        return self.K[0, 0] > 1.0 and self.K[1, 1] > 1.0  # un driver sin calibrar publica ceros
++
++
++class ColorStream:
++    """Suscribe imagen de color + CameraInfo. Llama a callback(color_bgr, header, cam: CameraModel).
++
++    Se usa QoS de sensor (best-effort) en AMBOS tópicos: es compatible con publicadores reliable
++    y best-effort, así que funciona con cualquier driver UVC.
++    """
++
++    def __init__(self, node: Node, color_topic: str, info_topic: str, callback: Callable,
++                 max_rate_hz: float = 0.0):
++        self._node = node
++        self._cb = callback
++        self._bridge = CvBridge()
++        self._cam: Optional[CameraModel] = None
++        self._min_period = 1.0 / max_rate_hz if max_rate_hz > 0 else 0.0
++        self._last = 0.0
++        node.create_subscription(CameraInfo, info_topic, self._on_info, qos_profile_sensor_data)
++        node.create_subscription(Image, color_topic, self._on_image, qos_profile_sensor_data)
++
++    def _on_info(self, msg: CameraInfo) -> None:
++        cam = CameraModel(msg)
++        if not cam.valid:
++            self._node.get_logger().warn(
++                'CameraInfo sin intrínsecos: ¿cámara sin calibrar? (ver camera_info_url del driver)',
++                throttle_duration_sec=5.0)
++            return
++        self._cam = cam
++
++    def _on_image(self, msg: Image) -> None:
++        if self._cam is None:
++            self._node.get_logger().warn('Esperando CameraInfo calibrada...', throttle_duration_sec=5.0)
++            return
++        now = self._node.get_clock().now().nanoseconds * 1e-9
++        if now - self._last < self._min_period:
++            return
++        self._last = now
++        try:
++            color = self._bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
++        except Exception as exc:  # noqa: BLE001
++            self._node.get_logger().error(f'Error convirtiendo imagen: {exc}')
++            return
++        h, w = color.shape[:2]
++        if self._cam.width and (self._cam.width, self._cam.height) != (w, h):
++            self._node.get_logger().error(
++                f'La imagen es {w}x{h} pero la calibración es {self._cam.width}x{self._cam.height}: '
++                'recalibra a la resolución de trabajo.', throttle_duration_sec=5.0)
++            return
++        self._cb(color, msg.header, self._cam)
++
++
++class PlaneProjector:
++    """Convierte píxeles en puntos del marco base apoyados en un plano z = cte (usa TF2)."""
++
++    def __init__(self, node: Node, base_frame: str = 'link_base'):
++        self.node = node
++        self.base_frame = base_frame
++        self._buf = Buffer()
++        self._listener = TransformListener(self._buf, node)
++
++    def bind(self, cam: CameraModel, cam_frame: str):
++        """Hace UNA consulta TF y devuelve project(u, v, plane_z) → np.ndarray(3) | None.
++
++        Devuelve None si aún no existe la transformación base ← cámara (publicada por el Paso 2).
++        """
++        try:
++            tf = self._buf.lookup_transform(self.base_frame, cam_frame, Time())
++        except TransformException as exc:
++            self.node.get_logger().warn(
++                f'TF {self.base_frame} ← {cam_frame} no disponible: {exc}', throttle_duration_sec=5.0)
++            return None
++        t, r = tf.transform.translation, tf.transform.rotation
++        rot = quat_to_matrix((r.x, r.y, r.z, r.w))
++        origin = (t.x, t.y, t.z)
++
++        def project(u: float, v: float, plane_z: float):
++            ray_cam = np.array(pixel_ray(u, v, cam.K, cam.D))
++            p = ray_plane_z(origin, rot @ ray_cam, plane_z)
++            return None if p is None else np.array(p)
++
++        return project
+diff -ruN a/surgical_assistant/task_coordinator_node.py b/surgical_assistant/task_coordinator_node.py
+--- a/surgical_assistant/task_coordinator_node.py	2026-10-16 18:17:12.634360383 -0500
++++ b/surgical_assistant/task_coordinator_node.py	2026-10-16 18:17:12.636693831 -0500
+@@ -268,6 +268,8 @@
+ 
+     # ================================================================= geometría
+     def _to_base(self, frame_id: str, pos, quat):
++        if frame_id == self.base_frame:  # los nodos de visión monoculares ya publican en link_base
++            return tuple(float(c) for c in pos), tuple(float(c) for c in quat)
+         try:
+             tf = self.tf_buffer.lookup_transform(self.base_frame, frame_id, Time())
+         except TransformException as exc:
+diff -ruN a/test/test_monocular.py b/test/test_monocular.py
+--- a/test/test_monocular.py	1969-12-31 19:00:00.000000000 -0500
++++ b/test/test_monocular.py	2026-10-16 18:17:12.637032489 -0500
+@@ -0,0 +1,92 @@
++import math
++
++import cv2
++import numpy as np
++
++from surgical_assistant import geometry as g
++
++K = np.array([[1400.0, 0, 960.0], [0, 1400.0, 540.0], [0, 0, 1]])
++D = np.array([-0.12, 0.05, 0.0005, -0.0003, 0.0])        # distorsión realista de gran angular
++PLANE_Z = 0.01
++
++
++def make_camera(roll=math.pi, pitch=0.25, yaw=0.15, pos=(0.30, 0.0, 0.75)):
++    """Cámara cenital inclinada. Devuelve (R_base_cam, origen, project, to_pixel)."""
++    rot = g.quat_to_matrix(g.quat_from_rpy(roll, pitch, yaw))
++    origin = np.array(pos)
++
++    def to_pixel(p_base):  # verdad de terreno: proyección con distorsión (cv2.projectPoints)
++        r_cb = rot.T
++        rvec, _ = cv2.Rodrigues(r_cb)
++        tvec = -r_cb @ origin
++        px, _ = cv2.projectPoints(np.array([p_base], float), rvec, tvec, K, D)
++        return px[0, 0]
++
++    def project(u, v, z):
++        ray = rot @ np.array(g.pixel_ray(u, v, K, D))
++        p = g.ray_plane_z(origin, ray, z)
++        return None if p is None else np.array(p)
++
++    return rot, origin, project, to_pixel
++
++
++def test_pixel_to_plane_roundtrip_with_distortion():
++    _, _, project, to_pixel = make_camera()
++    for x, y in [(0.30, 0.0), (0.2, 0.15), (0.45, -0.2), (0.15, -0.3), (0.5, 0.3)]:
++        u, v = to_pixel((x, y, PLANE_Z))
++        p = project(u, v, PLANE_Z)
++        assert np.allclose(p, (x, y, PLANE_Z), atol=2e-4), (x, y, p)
++
++
++def test_no_distortion_and_none_cases():
++    ray = g.pixel_ray(960.0, 540.0, K, None)
++    assert np.allclose(ray, (0, 0, 1))
++    assert g.pixel_ray(960.0, 540.0, K, [])[2] == 1.0
++    assert g.ray_plane_z((0, 0, 0.5), (0, 0, 1), 0.0) is None        # el plano queda detrás
++    assert g.ray_plane_z((0, 0, 0.5), (1, 0, 0), 0.0) is None        # rayo paralelo al plano
++    assert np.allclose(g.ray_plane_z((0, 0, 1), (1, 0, -1), 0.0), (1, 0, 0))
++
++
++def _obb_from_world(to_pixel, centre_xy, yaw, length):
++    c = np.array([*centre_xy, PLANE_Z])
++    d = np.array([math.cos(yaw), math.sin(yaw), 0.0])
++    pa, pb = to_pixel(c - d * length / 2), to_pixel(c + d * length / 2)
++    cx, cy = to_pixel(c)
++    vec = pb - pa
++    _, axis = g.obb_long_axis(float(np.hypot(*vec)), 5.0, math.atan2(vec[1], vec[0]))
++    return float(cx), float(cy), float(np.hypot(*vec)), axis
++
++
++def test_grasp_on_plane_recovers_position_axis_and_alpha():
++    _, _, project, to_pixel = make_camera()
++    alpha = 0.02
++    for centre, yaw in [((0.30, 0.05), 0.6), ((0.22, -0.12), -1.1), ((0.40, 0.2), 2.4), ((0.30, 0.0), 0.0)]:
++        cx, cy, lpx, axis = _obb_from_world(to_pixel, centre, yaw, 0.15)
++        x, y, yaw_est, length = g.grasp_on_plane(project, cx, cy, lpx, axis, alpha, PLANE_Z)
++        # Dirección: la misma recta (ambigüedad de 180° resuelta hacia el extremo con mayor u)
++        d_est = np.array([math.cos(yaw_est), math.sin(yaw_est)])
++        d_true = np.array([math.cos(yaw), math.sin(yaw)])
++        assert abs(abs(d_est @ d_true) - 1.0) < 2e-3
++        assert abs(length - 0.15) < 2e-3
++        # Posición: centro + alpha·d_est
++        assert np.allclose((x, y), np.array(centre) + alpha * d_est, atol=2e-3)
++        # El sentido +alpha apunta al extremo con mayor coordenada u en la imagen
++        eps = 1e-3
++        u_plus = to_pixel(np.array([*centre, PLANE_Z]) + eps * np.array([*d_est, 0]))[0]
++        u_minus = to_pixel(np.array([*centre, PLANE_Z]) - eps * np.array([*d_est, 0]))[0]
++        assert u_plus >= u_minus
++
++
++def test_grasp_on_plane_none_when_tf_missing():
++    assert g.grasp_on_plane(lambda u, v, z: None, 10, 10, 50, 0.0, 0.0, PLANE_Z) is None
++
++
++def test_plane_height_error_sensitivity_matches_theory():
++    """Error en altura del plano Δh → error lateral ≈ Δh·tan(θ), θ = ángulo respecto a la vertical."""
++    _, origin, project, to_pixel = make_camera(pitch=0.0, yaw=0.0)
++    target = np.array([0.30 + 0.3, 0.0, PLANE_Z])           # 0.3 m de desplazamiento horizontal
++    u, v = to_pixel(target)
++    dh = 0.05
++    wrong = project(u, v, PLANE_Z + dh)
++    theta = math.atan2(0.3, origin[2] - PLANE_Z)
++    assert abs(np.hypot(*(wrong[:2] - target[:2])) - dh * math.tan(theta)) < 1e-3

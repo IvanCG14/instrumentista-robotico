@@ -1,0 +1,32 @@
+[0.779s] Invoking command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(venv) /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/build --no-deps symlink_data
+[1.070s] running develop
+[1.248s] running egg_info
+[1.248s] creating surgical_assistant.egg-info
+[1.268s] writing surgical_assistant.egg-info/PKG-INFO
+[1.268s] writing dependency_links to surgical_assistant.egg-info/dependency_links.txt
+[1.269s] writing entry points to surgical_assistant.egg-info/entry_points.txt
+[1.269s] writing requirements to surgical_assistant.egg-info/requires.txt
+[1.269s] writing top-level names to surgical_assistant.egg-info/top_level.txt
+[1.269s] writing manifest file 'surgical_assistant.egg-info/SOURCES.txt'
+[1.316s] reading manifest file 'surgical_assistant.egg-info/SOURCES.txt'
+[1.316s] writing manifest file 'surgical_assistant.egg-info/SOURCES.txt'
+[1.341s] running build_ext
+[1.341s] Creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages/surgical-assistant.egg-link (link to .)
+[1.343s] Installing hand_tracking_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+[1.343s] Installing instrument_detection_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+[1.343s] Installing task_coordinator_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+[1.343s] Installing voice_command_node script to /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/surgical_assistant
+[1.343s] 
+[1.344s] Installed /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant
+[1.344s] running symlink_data
+[1.344s] creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index
+[1.344s] creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index/resource_index
+[1.344s] creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index/resource_index/packages
+[1.345s] symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/resource/surgical_assistant -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/ament_index/resource_index/packages
+[1.345s] symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/package.xml -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant
+[1.345s] creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/config
+[1.345s] symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/config/params.yaml -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/config
+[1.345s] symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/config/instruments.yaml -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/config
+[1.345s] creating /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/launch
+[1.345s] symbolically linking /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/launch/surgical_assistant.launch.py -> /home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/share/surgical_assistant/launch
+[1.382s] Invoked command in '/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_interfaces/lib/python3.12/site-packages:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant:/home/iandre/Documents/asist_rbt_instrument/surgical_ws/install/surgical_assistant/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(venv) /home/iandre/Documents/asist_rbt_instrument/venv/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/iandre/Documents/asist_rbt_instrument/surgical_ws/build/surgical_assistant/build --no-deps symlink_data

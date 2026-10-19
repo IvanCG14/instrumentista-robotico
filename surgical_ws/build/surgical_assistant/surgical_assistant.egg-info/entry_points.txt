@@ -1,0 +1,5 @@
+[console_scripts]
+hand_tracking_node = surgical_assistant.hand_tracking_node:main
+instrument_detection_node = surgical_assistant.instrument_detection_node:main
+task_coordinator_node = surgical_assistant.task_coordinator_node:main
+voice_command_node = surgical_assistant.voice_command_node:main
