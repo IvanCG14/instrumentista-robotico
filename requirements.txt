@@ -1,5 +1,8 @@
 numpy==1.26.4
-opencv-python==4.11.0
+# OpenCV: mediapipe 1.1.1 ya depende de opencv-contrib-python, así que se fija ESA distribución.
+# No instales además "opencv-python": ambos paquetes publican el módulo `cv2` y se pisan entre sí.
+# (La versión en PyPI es 4.11.0.86; "opencv-python==4.11.0" no existe y hace fallar a pip.)
+opencv-contrib-python==4.11.0.86
 PyYAML==6.0.1
 onnxruntime==1.31.0
 faster-whisper==1.2.1
@@ -7,4 +10,5 @@ mediapipe==1.1.1
 sounddevice==0.5.6
 
 # Opcional (descomentar si deseas usar clasificación NLU basada en SetFit)
+# Atención: arrastra PyTorch (varios GB). Sin él, el nodo de voz usa reglas por palabras clave.
 # setfit
